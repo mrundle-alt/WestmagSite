@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { REVOLUTION } from "@/lib/westmag/content";
-import { InteractiveMap } from "./InteractiveMap";
 
 export function RevolutionV2() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -26,9 +26,17 @@ export function RevolutionV2() {
       <motion.div
         ref={mapRef}
         style={{ scale: mapScale, y: mapY, opacity: mapOpacity }}
-        className="flex w-full justify-center"
+        className="w-full max-w-[1500px]"
       >
-        <InteractiveMap />
+        <Image
+          src="/westmag/images/america-motors-graphic.png"
+          alt=""
+          width={1988}
+          height={1245}
+          sizes="(max-width: 1988px) 100vw, 1988px"
+          priority
+          className="h-auto w-full object-contain"
+        />
       </motion.div>
 
       <div className="flex w-full flex-col items-center px-[100px] pt-5 max-lg:px-10 max-md:px-6">

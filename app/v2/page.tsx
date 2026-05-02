@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Navbar } from "@/components/westmag/Navbar";
 import { Footer } from "@/components/westmag/Footer";
-import { ContactModal } from "@/components/westmag/ContactModal";
+import { ContactModalV2 } from "@/components/westmag/v2/ContactModalV2";
 import { HeroV2 } from "@/components/westmag/v2/HeroV2";
 import { RevolutionV2 } from "@/components/westmag/v2/RevolutionV2";
 import { FactoryV2 } from "@/components/westmag/v2/FactoryV2";
@@ -29,7 +29,7 @@ export default function HomePageV2() {
         <TeamV2 />
       </main>
       <Footer />
-      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
+      <ContactModalV2 open={contactOpen} onClose={() => setContactOpen(false)} />
     </>
   );
 }
