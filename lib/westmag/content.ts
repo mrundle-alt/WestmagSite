@@ -98,25 +98,71 @@ export const SCALING = {
   cta: "CONTACT US",
 } as const;
 
-export const TEAM = {
+export type TeamMember = {
+  name: string;
+  role: string;
+  social: { kind: "x" | "linkedin"; href: string; label: string };
+};
+
+export const TEAM: {
+  heading: string;
+  members: TeamMember[];
+  body: string;
+  cta: string;
+} = {
   heading: "We\u2019re building a world class team",
   members: [
-    { name: "DAVID HANSEN", role: "Co-Founder & CEO" },
-    { name: "JORDAN SANDERS", role: "Co-Founder & CTO" },
+    {
+      name: "DAVID HANSEN",
+      role: "Co-Founder & CEO",
+      social: { kind: "x", href: "https://x.com/boxcardavid", label: "David Hansen on X" },
+    },
+    {
+      name: "JORDAN SANDERS",
+      role: "Co-Founder & CTO",
+      social: {
+        kind: "linkedin",
+        href: "https://www.linkedin.com/in/jordansanders1/",
+        label: "Jordan Sanders on LinkedIn",
+      },
+    },
   ],
   body: "Our team has world-class talent in motor design, manufacturing engineering, and production automation. Our team draws from Waterloo, UBC, MIT, Cornell, and leaders in automotive scale.",
   cta: "VIEW OPEN ROLES",
-} as const;
+};
 
 export const FOOTER = {
   address: "South San Francisco, CA",
   copyright: "\u00a9 2026 Western Magnetics Company. All rights reserved.",
   termsLabel: "Terms and Conditions",
-  termsHref: "#",
+  termsHref: "/terms",
   email: "contact@westmag.com",
   socials: [
     { label: "Email", href: "mailto:contact@westmag.com", icon: "/westmag/icons/mail.svg" },
     { label: "LinkedIn", href: "#", icon: "/westmag/icons/linkedin.svg" },
-    { label: "X", href: "#", icon: "/westmag/icons/x.svg" },
+    { label: "X", href: "https://x.com/westmagco", icon: "/westmag/icons/x.svg" },
   ],
+} as const;
+
+/**
+ * Dover careers integration. Drop in your Dover embed/link from app.dover.com
+ * → Careers Page → Get a link / Embed code. Two formats supported:
+ *
+ *  - Iframe URL  (recommended): set CAREERS_DOVER.embedUrl
+ *  - Direct link only:           set CAREERS_DOVER.linkUrl (no embed)
+ *
+ * Until you fill it in, /careers shows a "Coming soon" with the contact email.
+ */
+export const CAREERS_DOVER: {
+  embedUrl: string | null;
+  linkUrl: string | null;
+} = {
+  embedUrl: null,
+  linkUrl: null,
+};
+
+export const CAREERS = {
+  heading: "OPEN ROLES",
+  body: "We're hiring across motor design, manufacturing engineering, production automation, and supply chain. If you want to help build the great American motor company, we want to hear from you.",
+  contactNote: "Don't see a fit? Send us a note at contact@westmag.com.",
 } as const;

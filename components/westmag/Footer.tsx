@@ -25,16 +25,20 @@ export function Footer() {
             />
           </Link>
           <div className="flex items-center justify-center gap-[50px]">
-            {FOOTER.socials.map((s) => (
-              <Link
-                key={s.label}
-                href={s.href}
-                aria-label={s.label}
-                className="transition-opacity hover:opacity-75"
-              >
-                <Image src={s.icon} alt="" width={56} height={56} className="h-auto w-14" />
-              </Link>
-            ))}
+            {FOOTER.socials.map((s) => {
+              const isExternal = s.href.startsWith("http");
+              return (
+                <Link
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.label}
+                  {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="transition-opacity hover:opacity-75"
+                >
+                  <Image src={s.icon} alt="" width={56} height={56} className="h-auto w-14" />
+                </Link>
+              );
+            })}
           </div>
         </div>
         <div className="absolute inset-x-0 bottom-0 z-0 flex items-start justify-center">

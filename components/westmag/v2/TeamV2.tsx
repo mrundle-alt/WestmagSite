@@ -48,11 +48,19 @@ export function TeamV2() {
                   </p>
                 </div>
                 <Link
-                  href="#"
-                  aria-label={`${member.name} on X`}
+                  href={member.social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={member.social.label}
                   className="transition-opacity hover:opacity-75"
                 >
-                  <Image src="/westmag/icons/x.svg" alt="" width={40} height={40} className="h-10 w-10" />
+                  <Image
+                    src={`/westmag/icons/${member.social.kind}.svg`}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className="h-10 w-10"
+                  />
                 </Link>
               </div>
             </motion.div>
