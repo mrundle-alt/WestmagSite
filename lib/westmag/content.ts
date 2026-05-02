@@ -145,24 +145,73 @@ export const FOOTER = {
 } as const;
 
 /**
- * Dover careers integration. Drop in your Dover embed/link from app.dover.com
- * → Careers Page → Get a link / Embed code. Two formats supported:
+ * Careers ATS integration. Works with either Dover or Workable (or any iframe-embeddable ATS).
  *
- *  - Iframe URL  (recommended): set CAREERS_DOVER.embedUrl
- *  - Direct link only:           set CAREERS_DOVER.linkUrl (no embed)
+ *  Dover:
+ *    app.dover.com → Careers Page → Get a link / Embed code
+ *    paste the embed URL into provider.embedUrl below
  *
- * Until you fill it in, /careers shows a "Coming soon" with the contact email.
+ *  Workable:
+ *    Workable account → Settings → Careers Page → Job widget / iFrame
+ *    https://apply.workable.com/<your-subdomain>/  → set as embedUrl, OR
+ *    use the public REST API at https://www.workable.com/spi/v3/accounts/<sub>/jobs
+ *    for a fully custom React render (TODO: implement if/when needed)
+ *
+ *  Until you fill it in, /careers renders a richer "info + roles areas" page
+ *  with the contact email as a fallback CTA.
  */
-export const CAREERS_DOVER: {
+export const CAREERS_PROVIDER: {
+  kind: "dover" | "workable" | null;
   embedUrl: string | null;
   linkUrl: string | null;
 } = {
+  kind: null,
   embedUrl: null,
   linkUrl: null,
 };
 
 export const CAREERS = {
-  heading: "OPEN ROLES",
-  body: "We're hiring across motor design, manufacturing engineering, production automation, and supply chain. If you want to help build the great American motor company, we want to hear from you.",
-  contactNote: "Don't see a fit? Send us a note at contact@westmag.com.",
+  heading: "Build the great American motor company.",
+  intro:
+    "We design and manufacture BLDC motors and actuators in South San Francisco for the next generation of drones and robots. We're hiring across engineering, manufacturing, and supply chain \u2014 if any of the areas below describes you, we want to talk.",
+  hiringAreas: [
+    {
+      title: "Motor Design",
+      body: "Electromagnetic, thermal, and mechanical design of inrunner and outrunner BLDC motors. FEA / FEMM / Maxwell experience welcome.",
+    },
+    {
+      title: "Manufacturing Engineering",
+      body: "Stator winding, rotor magnetization, rotor bonding, balancing, end-of-line test. We automate as much as possible.",
+    },
+    {
+      title: "Production Automation",
+      body: "PLCs, robotics, vision systems, and the software stack that orchestrates them. Background in cell design and MES.",
+    },
+    {
+      title: "Firmware & Controls",
+      body: "FOC, sensorless control, model-based design, and motor-side firmware that ships at scale.",
+    },
+    {
+      title: "Supply Chain",
+      body: "Domestic and allied-nation sourcing of magnets, laminations, copper, and bearings. NDAA compliance is a constraint, not a suggestion.",
+    },
+    {
+      title: "Operations & GTM",
+      body: "Customer-facing roles supporting drone and robotics OEMs in commercial and defense markets.",
+    },
+  ],
+  values: [
+    "Make it in America, end-to-end.",
+    "Automate the second time you do something.",
+    "Talk to customers weekly. Ship to them monthly.",
+    "Bias to motors leaving the building.",
+  ],
+  process: [
+    { step: "1.", title: "Apply", body: "Submit through our portal or email contact@westmag.com." },
+    { step: "2.", title: "Intro call", body: "30 minutes with a founder or hiring manager." },
+    { step: "3.", title: "Technical loop", body: "2\u20133 conversations, including a take-home or whiteboard problem grounded in something we actually shipped." },
+    { step: "4.", title: "On-site", body: "Visit Factory 01 in South San Francisco. Meet the team. See the line." },
+    { step: "5.", title: "Offer", body: "Fast turn. Equity that matters." },
+  ],
+  contactNote: "Don't see a fit? Send us a note at contact@westmag.com \u2014 we hire ahead of the org chart.",
 } as const;
