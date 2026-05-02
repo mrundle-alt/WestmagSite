@@ -170,6 +170,128 @@ export const CAREERS_PROVIDER: {
   linkUrl: null,
 };
 
+export type Job = {
+  slug: string;
+  title: string;
+  team: string;
+  location: string;
+  type: string; // "Full-time" | "Contract" etc.
+  /** When you wire up an ATS, set this to the role's apply URL (e.g. Workable apply page). Falls back to mailto. */
+  applyUrl: string | null;
+  blurb: string;
+  about: string;
+  responsibilities: string[];
+  qualifications: string[];
+  niceToHave?: string[];
+  comp?: string;
+};
+
+export const JOBS: Job[] = [
+  {
+    slug: "supply-chain-manager",
+    title: "Supply Chain Manager",
+    team: "Operations",
+    location: "South San Francisco, CA (on-site)",
+    type: "Full-time",
+    applyUrl: null,
+    blurb:
+      "Own the materials, components, and supplier relationships that turn motor designs into shipped product. NDAA-compliant from day one.",
+    about:
+      "Westmag is building the great American motor company. We design and manufacture BLDC motors and actuators in South San Francisco for the next generation of drones and robots. As Supply Chain Manager, you'll own the full materials and components stack \u2014 magnets, laminations, copper, bearings, electronics \u2014 and the supplier relationships behind them. We are NDAA-compliant from day one; that's a constraint that shapes every sourcing decision we make.",
+    responsibilities: [
+      "Own end-to-end supply for all motor and actuator programs: forecasting, sourcing, purchasing, inventory, and inbound logistics.",
+      "Build and manage relationships with domestic and allied-nation suppliers of magnets, laminations, copper wire, bearings, and electronic components.",
+      "Negotiate pricing, lead times, and capacity commitments. Keep us ahead of demand without holding dead inventory.",
+      "Maintain NDAA / Buy American / FAR compliance documentation for every part and supplier.",
+      "Stand up strategic inventory positions on critical materials to insulate customers from supply shocks.",
+      "Partner with engineering on DFM and second-source qualification before designs lock.",
+      "Build the systems and dashboards we need to run supply at 10x volume, not just today's volume.",
+    ],
+    qualifications: [
+      "5+ years in supply chain, sourcing, or procurement roles in a hardware-manufacturing environment (motors, EVs, robotics, aerospace, automotive, or similar).",
+      "Direct experience sourcing magnets, laminations, copper, or bearings strongly preferred.",
+      "Working knowledge of NDAA / FAR / Buy American provisions and how they apply to component sourcing.",
+      "Track record of building supplier relationships that scale through capacity ramps.",
+      "Comfortable in a startup environment \u2014 you build the process while you run it.",
+      "Authorized to work in the United States. Some roles may require U.S.-person status under ITAR/EAR.",
+    ],
+    niceToHave: [
+      "Experience standing up a supplier-quality program from scratch.",
+      "Familiarity with ERP / MRP systems and a healthy skepticism of premature ERP adoption.",
+      "Background in defense or dual-use hardware programs.",
+    ],
+    comp: "Competitive salary + meaningful equity. Health, dental, vision. Relocation support to the Bay Area.",
+  },
+  {
+    slug: "machinist",
+    title: "Machinist",
+    team: "Manufacturing",
+    location: "South San Francisco, CA (on-site)",
+    type: "Full-time",
+    applyUrl: null,
+    blurb:
+      "Make the parts that make the motors. CNC and manual machining of stator stacks, rotor cores, shafts, housings, and tooling.",
+    about:
+      "Westmag's Factory 01 in South San Francisco is where motor designs become motors. As one of our first machinists, you'll work directly with engineering on prototype-to-production tooling, fixtures, and parts \u2014 stator and rotor cores, shafts, housings, balancing rigs, and the dozens of small parts that don't show up on a BOM but make the line run. You'll have unusual influence over how the shop is set up and what we buy next.",
+    responsibilities: [
+      "Set up and run CNC mills and lathes (3-axis minimum, 5-axis a plus) for prototype and short-run production parts.",
+      "Manual machining when it's faster than programming the CNC.",
+      "Build tooling and fixtures for stator winding, rotor magnetization, balancing, and end-of-line test.",
+      "Inspect first-articles and own the GD&T conversation with engineering when prints don't match the part you can actually make.",
+      "Maintain the shop \u2014 tooling, coolant, calibration, the works.",
+      "Help define what new machines we buy as we scale Factory 01.",
+    ],
+    qualifications: [
+      "5+ years of professional machining experience, with a meaningful portion in CNC.",
+      "Fluent reading mechanical drawings and applying GD&T.",
+      "Comfortable programming at the controller and editing G-code by hand when needed.",
+      "Steady, careful, and fast \u2014 in that order.",
+      "Authorized to work in the United States.",
+    ],
+    niceToHave: [
+      "5-axis experience.",
+      "EDM (wire or sinker) experience.",
+      "Background in motor, EV, aerospace, or precision-instrument shops.",
+      "Some Fusion 360 / Mastercam CAM authoring chops.",
+    ],
+    comp: "Competitive hourly or salary + equity. Health, dental, vision. Tooling allowance.",
+  },
+  {
+    slug: "office-manager-operations-specialist",
+    title: "Office Manager / Operations Specialist",
+    team: "Operations",
+    location: "South San Francisco, CA (on-site)",
+    type: "Full-time",
+    applyUrl: null,
+    blurb:
+      "The connective tissue of the company. Make the office, the shop, and the people inside both run smoothly.",
+    about:
+      "Westmag is small, hardware-heavy, and growing fast. As Office Manager / Operations Specialist, you'll be the connective tissue \u2014 you make the office and Factory 01 run, you onboard new hires, you keep vendors paid and visitors badged, and you own the dozen small things that fall in the cracks between engineering and finance. This is a high-trust role for someone who likes building order out of chaos.",
+    responsibilities: [
+      "Run day-to-day office and facilities operations for our South San Francisco HQ and adjacent shop space.",
+      "Own onboarding for new hires \u2014 desk, laptop, badges, accounts, the welcome lunch.",
+      "Manage vendor relationships (cleaning, IT, security, snacks, deliveries) and the AP that goes with them.",
+      "Coordinate visitors and customer tours of Factory 01.",
+      "Plan team events, offsites, and the small rituals that make a hardware company a place people want to work.",
+      "Pick up special projects across HR, finance, and ops as the founders need.",
+      "Build the systems and SOPs we'll hand to a future office team when we're 50 people.",
+    ],
+    qualifications: [
+      "3+ years in office management, operations, or executive-assistant roles \u2014 ideally at a small but fast-growing company.",
+      "Excellent written and verbal communication.",
+      "Calm under pressure. Genuine warmth. Strong sense of ownership.",
+      "Comfortable with light financial work (expense reports, AP, vendor onboarding).",
+      "Authorized to work in the United States.",
+    ],
+    niceToHave: [
+      "Prior experience at a hardware or manufacturing company.",
+      "Familiarity with QuickBooks, Ramp, Rippling, or similar tooling.",
+      "Notary, first-aid, or facilities-related certifications.",
+    ],
+    comp: "Competitive salary + equity. Health, dental, vision. Real ownership of how the company feels day-to-day.",
+  },
+];
+
 export const CAREERS = {
   heading: "Build the great American motor company.",
   intro:

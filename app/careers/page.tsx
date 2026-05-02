@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/westmag/Navbar";
 import { Footer } from "@/components/westmag/Footer";
 import { ContactModal } from "@/components/westmag/ContactModal";
-import { CAREERS, CAREERS_PROVIDER } from "@/lib/westmag/content";
+import { CAREERS, CAREERS_PROVIDER, JOBS } from "@/lib/westmag/content";
 
 export default function CareersPage() {
   const [contactOpen, setContactOpen] = useState(false);
@@ -91,7 +91,33 @@ export default function CareersPage() {
               </p>
             </div>
 
-            {embedUrl ? (
+            {/* Native job cards (always rendered).
+                Each /careers/[slug] page links Apply to the role's applyUrl when set,
+                otherwise falls back to a prefilled mailto. */}
+            <div className="grid grid-cols-1 gap-px bg-gray-700">
+              {JOBS.map((job) => (
+                <Link
+                  key={job.slug}
+                  href={`/careers/${job.slug}`}
+                  className="group flex items-center justify-between gap-6 bg-black/40 px-8 py-6 transition-colors duration-300 hover:bg-[var(--orange)]/15 max-md:flex-col max-md:items-start"
+                >
+                  <div className="flex flex-col gap-1">
+                    <h3 className="m-0 font-mono text-[20px] font-medium uppercase leading-[26px] text-white transition-colors group-hover:text-[var(--orange)]">
+                      {job.title}
+                    </h3>
+                    <p className="m-0 font-mono text-[13px] leading-[18px] text-white/70">
+                      {job.team} {"\u00b7"} {job.location} {"\u00b7"} {job.type}
+                    </p>
+                  </div>
+                  <span className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-white/70 transition-all group-hover:text-[var(--orange)] group-hover:tracking-[0.3em]">
+                    View role {"\u2192"}
+                  </span>
+                </Link>
+              ))}
+            </div>
+
+            {/* Optional ATS embed below the native list (renders only if configured). */}
+            {embedUrl && (
               <div className="border border-gray-500 bg-white/5 p-[5px]">
                 <iframe
                   src={embedUrl}
@@ -100,10 +126,11 @@ export default function CareersPage() {
                   loading="lazy"
                 />
               </div>
-            ) : linkUrl ? (
+            )}
+            {!embedUrl && linkUrl && (
               <div className="flex flex-col gap-4 border border-gray-500 bg-white/5 p-10">
                 <p className="m-0 font-mono text-[15px] leading-[24px] text-white/85">
-                  Browse open roles on our careers portal:
+                  Browse the full portal:
                 </p>
                 <Link
                   href={linkUrl}
@@ -111,30 +138,7 @@ export default function CareersPage() {
                   rel="noopener noreferrer"
                   className="wm-btn inline-flex w-fit items-center justify-center bg-[var(--orange)] px-10 py-5 font-mono font-medium uppercase text-white transition-opacity hover:opacity-75"
                 >
-                  View Open Roles
-                </Link>
-              </div>
-            ) : (
-              <div className="flex flex-col gap-4 border border-gray-500 bg-white/5 p-10">
-                <p className="m-0 font-mono text-xs uppercase tracking-[0.25em] text-[var(--orange)]">
-                  Roles posting soon
-                </p>
-                <p className="m-0 max-w-[700px] font-mono text-[15px] leading-[24px] text-white/85">
-                  We&apos;re finalizing our hiring portal. Until then, send a resume + a few sentences
-                  about the work you want to do to{" "}
-                  <Link
-                    href="mailto:contact@westmag.com"
-                    className="text-[var(--orange)] underline underline-offset-4"
-                  >
-                    contact@westmag.com
-                  </Link>
-                  .
-                </p>
-                <Link
-                  href="mailto:contact@westmag.com"
-                  className="wm-btn inline-flex w-fit items-center justify-center bg-[var(--orange)] px-10 py-5 font-mono font-medium uppercase text-white transition-opacity hover:opacity-75"
-                >
-                  Email contact@westmag.com
+                  Open careers portal
                 </Link>
               </div>
             )}
