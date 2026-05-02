@@ -1,0 +1,14 @@
+"use client";
+
+import { motion, useScroll } from "framer-motion";
+
+export function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  return (
+    <motion.div
+      aria-hidden
+      className="fixed inset-x-0 top-0 z-[55] h-[2px] origin-left bg-[var(--orange)]"
+      style={{ scaleX: scrollYProgress }}
+    />
+  );
+}

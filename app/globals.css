@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------
+   Westmag design tokens (extracted from the recovered Webflow CSS)
+   ---------------------------------------------------------------------- */
+:root {
+  --orange: #ff3905;
+  --body-text-1: #ffffff;
+  --button-cut: 24px;
+}
+
+@theme inline {
+  --color-orange: #ff3905;
+  --color-orange-hover: #ff5a2b;
+  --font-display: var(--font-inter);
+  --font-mono: var(--font-ibm-plex-mono);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #b0b0b0;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Global text-wrap pretty (matches original site) */
+.t1, .t2, .h1-text, .h2-text, .t3 {
+  text-wrap: balance;
+}
+@supports (text-wrap: pretty) {
+  .t1, .t2, .h1-text, .h2-text, .t3 {
+    text-wrap: pretty;
+  }
+}
+
+/* Disable native textarea resize (matches original) */
+textarea { resize: none; }
+
+/* ----------------------------------------------------------------------
+   Angled clip-path buttons (Webflow inline style preserved)
+   ---------------------------------------------------------------------- */
+.wm-btn {
+  --cut: var(--button-cut);
+  position: relative;
+  display: inline-flex;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cut)) 0,
+    100% var(--cut),
+    100% 100%,
+    var(--cut) 100%,
+    0 calc(100% - var(--cut))
+  );
+  overflow: hidden;
+}
+.wm-btn-contact {
+  --cut: 14px;
+}
+@media (max-width: 991px) {
+  .wm-btn-contact { clip-path: none; }
+}
+
+/* ----------------------------------------------------------------------
+   Background textures (uses public/westmag assets)
+   ---------------------------------------------------------------------- */
+.wm-bg-grain {
+  background-image: url("/westmag/images/grainybg.png");
+  background-position: 50%;
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
+.wm-bg-dark {
+  background-color: #000;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.62)),
+    url("/westmag/images/grainybg.png");
+  background-position: 0 0, 50%;
+  background-repeat: repeat, repeat-y;
+  background-size: auto, cover;
+}
+
+.wm-bg-sanfran {
+  background-image: url("/westmag/images/sanfranpic.png");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wm-bg-stamp {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.07), rgba(0,0,0,0.07)),
+    url("/westmag/images/stampmotorswhite.png");
+  background-position: 0 0, 0 0;
+  background-repeat: repeat, repeat-y;
+  background-size: auto, contain;
+}
+
+.wm-bg-modal {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)),
+    url("/westmag/images/grainybg.png");
+}
+
+/* ----------------------------------------------------------------------
+   Hero text-stroke (matches Webflow's -webkit-text-stroke fidelity)
+   ---------------------------------------------------------------------- */
+.wm-hero-h1 {
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #fff;
+}
+@media (max-width: 991px) {
+  .wm-hero-h1 { -webkit-text-stroke-width: 1px; }
+}
+.wm-section-h2 {
+  -webkit-text-stroke-width: 1.5px;
+}
+
+/* ----------------------------------------------------------------------
+   Vid overlay gradient (hero)
+   ---------------------------------------------------------------------- */
+.wm-vid-overlay {
+  background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.75));
+}
+
+/* ----------------------------------------------------------------------
+   Text-box (revolution stack) — gray border, orange when active
+   ---------------------------------------------------------------------- */
+.wm-textbox {
+  background-color: rgba(0,0,0,0.05);
+  border: 2px solid #808080;
+  transition: border-color 300ms ease;
+}
+.wm-textbox[data-active="true"] {
+  border-color: var(--orange);
+}
+.wm-vert-line {
+  background-color: #808080;
+  width: 1px;
+  height: 50px;
+  transition: background-color 300ms ease;
+}
+
+/* ----------------------------------------------------------------------
+   Navbar slide hide/show
+   ---------------------------------------------------------------------- */
+.wm-navbar {
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+.wm-navbar[data-hidden="true"] {
+  transform: translateY(-100%);
+}
+
+/* Smooth-scroll for hash navigation */
+html { scroll-behavior: smooth; }
