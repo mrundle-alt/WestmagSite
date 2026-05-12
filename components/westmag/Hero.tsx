@@ -31,9 +31,6 @@ export function Hero() {
         <p className="t1 m-0 font-mono text-[20px] leading-[24px] text-white max-lg:text-[16px] max-lg:leading-[20px]">
           {HERO.body}
         </p>
-        <p className="t1 m-0 font-mono text-[20px] leading-[24px] text-white max-lg:text-[16px] max-lg:leading-[20px]">
-          {HERO.tagline}
-        </p>
         <Image
           src="/westmag/icons/orange-triangle-down.svg"
           alt=""
