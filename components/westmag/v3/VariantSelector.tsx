@@ -16,7 +16,7 @@ const REVOLUTION_LABELS: Record<RevolutionVariant, string> = {
   E: "Founder quote anchor",
   F: "Tabbed 001/002/003",
   G: "Asymmetric dark + chevrons",
-  H: "Section removed",
+  H: "Big numbers manifesto",
   I: "Trade catalog spec sheet (1957)",
   J: "Industrial poster (Fortune-cover)",
   K: "Domestic / Allied (equal-weight)",
