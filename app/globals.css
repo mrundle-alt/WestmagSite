@@ -5,6 +5,8 @@
    ---------------------------------------------------------------------- */
 :root {
   --orange: #ff3905;
+  --cream: #f5efe6;
+  --ink: #0a0a0a;
   --body-text-1: #ffffff;
   --button-cut: 24px;
 }
@@ -12,8 +14,19 @@
 @theme inline {
   --color-orange: #ff3905;
   --color-orange-hover: #ff5a2b;
+  --color-cream: #f5efe6;
+  --color-ink: #0a0a0a;
   --font-display: var(--font-inter);
   --font-mono: var(--font-ibm-plex-mono);
+}
+
+/* Era-appropriate section backgrounds (Fortune-magazine cream + ink-black) */
+.wm-bg-cream {
+  background-color: var(--cream);
+}
+.wm-bg-ink {
+  background-color: var(--ink);
+  color: var(--cream);
 }
 
 html, body {
