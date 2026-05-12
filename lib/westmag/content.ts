@@ -10,8 +10,7 @@ export const NAV_LINKS = [
 
 export const HERO = {
   heading: "AMERICAN MOTORS FOR DRONES AND ROBOTS",
-  body: "Westmag designs and manufactures BLDC motors and actuators, built in America for the next generation of autonomous machines.",
-  tagline: "Engineered for performance. Built for scale. Built in America.",
+  body: "Westmag designs and manufactures BLDC motors, drone motors, and robot actuators — built and scaled in America for the next generation of autonomous machines.",
 } as const;
 
 export const INVESTORS = [
@@ -75,26 +74,26 @@ export const PRODUCTS: ProductSpec[] = [
 ];
 
 export const VERTICAL = {
-  heading: "Vertically integrating design, manufacturing, and supply chain.",
+  heading: "Vertically integrated design, manufacturing, and supply chain.",
   cards: [
     {
       title: "DESIGN",
-      body: "Our engineering team benchmarks and characterizes motors across performance envelopes to build proprietary understanding of what the market actually needs. We use AI-enabled factory automation companies to ensure every design decision is manufacturable at scale.",
+      body: "Our engineering team characterizes motors across the full performance envelope. Every design decision is made for manufacturability at scale.",
     },
     {
       title: "MANUFACTURE",
-      body: "Our production facility in South San Francisco gives us direct control over quality, consistency, and lead times. We leverage proven motor manufacturing expertise through our strategic partnership with a leading Japanese motor technology company to accelerate our own production capabilities while building domestic capacity.",
+      body: "Production in South San Francisco gives us direct control over quality, consistency, and lead times. Strategic partnerships accelerate our domestic capacity.",
     },
     {
       title: "SUPPLY CHAIN",
-      body: "NDAA-compliant from day one. Our materials and components are sourced from the US and allied nations. We have invested in strategic inventory and relationships with domestic and emerging leaders in critical materials to insulate customers from supply shocks that have disrupted overseas-dependent alternatives.",
+      body: "NDAA-compliant from day one. Materials and components sourced from the US and allied nations. Strategic inventory and supplier relationships insulate customers from supply shocks.",
     },
   ],
 } as const;
 
 export const SCALING = {
   heading: "SCALING NOW",
-  body: "We're scaling production to millions of motors to support top customers in commercial and defense applications. If you are looking for a scaling partner, we want to hear from you early.",
+  body: "We're scaling production to millions of motors to support top customers. If you are looking for a scaling partner, we want to hear from you early.",
   cta: "CONTACT US",
 } as const;
 

@@ -70,14 +70,6 @@ export function HeroV2() {
         >
           {HERO.body}
         </motion.p>
-        <motion.p
-          className="t1 m-0 font-mono text-[20px] leading-[24px] text-white max-lg:text-[16px] max-lg:leading-[20px]"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: INTRO_DONE + 0.65, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {HERO.tagline}
-        </motion.p>
         <motion.div
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
